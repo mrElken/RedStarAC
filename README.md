@@ -1,2 +1,2 @@
-#RedStar AntiCheat
+# RedStar AntiCheat
 Проверка
