@@ -1,0 +1,56 @@
+name: RedStarAC
+version: '0.4.3F'
+main: elken.anticheat.redstarac.RedStarAC
+api-version: 1.19
+authors: [mrElken]
+depend:
+  - ProtocolLib
+softdepend:
+  - PlaceholderAPI
+  - ViaVersion
+  - Geyser-Spigot
+  - floodgate
+commands:
+  redstar:
+    description: RedStar AntiCheat Command
+    usage: /redstar <params>
+permissions:
+  redstar.*:
+    description: Gives access to all RedStarAC permissions.
+    children:
+      redstar.command: true
+      redstar.kick: true
+      redstar.status: true
+      redstar.bypass.*: true
+      redstar.reload: true
+      redstar.welcome: true
+  redstar.bypass.*:
+    description: Bypass RedStar checks.
+    default: false
+    children:
+      redstar.bypass.killaura: true
+      redstar.bypass.move: true
+  redstar.command:
+    description: Use /redstar command
+    default: op
+  redstar.status:
+    description: Use /redstar status
+    default: op
+  redstar.kick:
+    description: Use /redstar kick
+    default: op
+  redstar.reload:
+    description: Use /redstar reload
+    default: op
+  redstar.bypass.kick:
+    description: Bypass kick
+    default: false
+  redstar.bypass.killaura:
+    description: Bypass killaura check
+    default: false
+  redstar.bypass.move:
+    description: Bypass move check
+    default: false
+  redstar.welcome:
+    description: Shows a message at login
+    default: op

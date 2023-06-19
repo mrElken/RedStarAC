@@ -1,0 +1,29 @@
+# RedStarAC configuration
+authefication:
+  login: ""
+  token: ""
+
+  trial: false
+messages:
+  unknown: "§c[RedStarAC] §fUnknown command!"
+  no_perms: "§c[RedStarAC] §fYou don't have permission!"
+  kick: "§c[RedStarAC] §f%cheater% is successfully kicked!"
+  kick_you: "You were kicked by the anti-cheat!"
+  bypass_kick: "§c[RedStarAC] §fYou cannot kick this player, he has bypass!"
+  arg_null: "§c[RedStarAC] §fYou didn't specify an argument!"
+  reload: "§c[RedStarAC] §fPlugin successfully reloaded!"
+  join: "§c[RedStarAC] §fWelcome"
+  no_player: "§c[RedStarAC] §fPlayer not found!"
+checks:
+  killaura:
+    B:
+      enable: true
+      kick_message: "§cRedStarAC§f \n§fYou are kicked off for using cheats!\n§7(KillAura B)"
+      notify_message: "§c[RedStarAC] §fPlayer %cheater% uses cheats (Killaura B)"
+      notify_message_kick: "§c[RedStarAC] §fPlayer %cheater% was kicked for using cheats (Killaura B)"
+  move:
+    A:
+      enable: true
+      kick_message: "§cRedStarAC§f \n§fYou are kicked off for using cheats!\n§7(Move A)"
+      notify_message: "§c[RedStarAC] §fPlayer %cheater% uses cheats (Move A)"
+      notify_message_kick: "§c[RedStarAC] §fPlayer %cheater% was kicked for using cheats %count%/20 (Move A)"
