@@ -1,9 +1,4 @@
 # RedStarAC configuration
-authefication:
-  login: ""
-  token: ""
-
-  trial: false
 messages:
   unknown: "§c[RedStarAC] §fUnknown command!"
   no_perms: "§c[RedStarAC] §fYou don't have permission!"
