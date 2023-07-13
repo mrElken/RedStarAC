@@ -114,19 +114,19 @@ public class RedStarCommand extends AbstractCommand {
                 sender.sendMessage("§cOnline:§f " + Online + "/" + maxOnline);
                 if (minutes == 0) {
                     sender.sendMessage("§cServer uptime:§f " + seconds + " sec");
-                    sender.sendMessage("§cServer TPS:§f " + tps + "(" + lag + ")");
+                    sender.sendMessage("§cServer TPS:§f " + tps + " (" + lag + "% lag)");
                     sender.sendMessage("§cTime:§f " + OffsetDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
                 } else if (hours == 0) {
                     sender.sendMessage("§cServer uptime:§f " + minutes + " min " + seconds + " sec");
-                    sender.sendMessage("§cServer TPS:§f " + tps + "(" + lag + ")");
+                    sender.sendMessage("§cServer TPS:§f " + tps + " (" + lag + "% lag)");
                     sender.sendMessage("§cTime:§f " + OffsetDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
                 } else if (days == 0) {
                     sender.sendMessage("§cServer uptime:§f " + hours + " h " + minutes + " min " + seconds + " sec");
-                    sender.sendMessage("§cServer TPS:§f " + tps + "(" + lag + ")");
+                    sender.sendMessage("§cServer TPS:§f " + tps + " (" + lag + "% lag)");
                     sender.sendMessage("§cTime:§f " + OffsetDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
                 } else {
                     sender.sendMessage("§cServer uptime:§f " + days + " d " + hours + " h " + minutes + " min " + seconds + " sec");
-                    sender.sendMessage("§cServer TPS:§f " + tps + "(" + lag + ")");
+                    sender.sendMessage("§cServer TPS:§f " + tps + " (" + lag + "% lag)");
                     sender.sendMessage("§cTime:§f " + OffsetDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
                 }
                 return;
