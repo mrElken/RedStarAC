@@ -7,7 +7,7 @@ messages:
   bypass_kick: "§c[RedStarAC] §fYou cannot kick this player, he has bypass!"
   arg_null: "§c[RedStarAC] §fYou didn't specify an argument!"
   reload: "§c[RedStarAC] §fPlugin successfully reloaded!"
-  join: "§c[RedStarAC] §fWelcome"
+  join: "§c[RedStarAC] §fThis server is protected"
   no_player: "§c[RedStarAC] §fPlayer not found!"
 checks:
   killaura:
