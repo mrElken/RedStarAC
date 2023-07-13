@@ -4,6 +4,7 @@ import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
 import elken.anticheat.redstarac.checks.killaura.killauraB;
 import elken.anticheat.redstarac.commands.RedStarCommand;
+import elken.anticheat.redstarac.other.Lag;
 import elken.anticheat.redstarac.other.join_message;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -35,6 +36,7 @@ public class RedStarAC extends JavaPlugin implements Listener {
         Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "[RedStarAC] ---> Loading checks....");
         Bukkit.getServer().getPluginManager().registerEvents(new killauraB(), this);
         Bukkit.getPluginManager().registerEvents(new join_message(), this);
+        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new Lag(), 100L, 1L);
         try {
             TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException f) {
@@ -46,6 +48,7 @@ public class RedStarAC extends JavaPlugin implements Listener {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+
 
         Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "██████╗░███████╗██████╗░░██████╗████████╗░█████╗░██████╗░░█████╗░░█████╗░");
         Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "██╔══██╗██╔════╝██╔══██╗██╔════╝╚══██╔══╝██╔══██╗██╔══██╗██╔══██╗██╔══██╗");
