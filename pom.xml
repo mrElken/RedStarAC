@@ -6,7 +6,7 @@
 
     <groupId>redstar.redstar</groupId>
     <artifactId>RedStarAC</artifactId>
-    <version>0.4.4B</version>
+    <version>0.4.5D</version>
     <packaging>jar</packaging>
 
     <name>RedStarAC</name>
@@ -78,12 +78,12 @@
             <version>1.19.4-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>com.comphenix.protocol</groupId>
-            <artifactId>ProtocolLib</artifactId>
-            <version>5.0.0-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
+            <dependency>
+                <groupId>com.comphenix.protocol</groupId>
+                <artifactId>ProtocolLib</artifactId>
+                <version>5.0.0</version>
+                <scope>provided</scope>
+            </dependency>
         <dependency>
             <groupId>com.comphenix.packetwrapper</groupId>
             <artifactId>PacketWrapper</artifactId>

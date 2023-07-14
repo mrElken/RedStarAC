@@ -16,7 +16,6 @@ import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import static elken.anticheat.redstarac.RedStarAC.uptime;
 
@@ -95,39 +94,28 @@ public class RedStarCommand extends AbstractCommand {
                 sender.sendMessage(ChatColor.RED + RedStarAC.getInstance().getConfig().getString("messages.no_perms"));
                 return;
             } else {
-                sender.sendMessage("§cReading data....");
-                try {
-                    TimeUnit.SECONDS.sleep(1);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
                 long diff = System.currentTimeMillis() - uptime;
-                int days = (int)(diff / 86400000L);
-                int hours = (int)(diff / 3600000L % 24L);
-                int minutes = (int)(diff / 60000L % 60L);
-                int seconds = (int)(diff / 1000L % 60L);
-                double tps = Lag.getTPS();
+                int days = (int) (diff / 86400000L);
+                int hours = (int) (diff / 3600000L % 24L);
+                int minutes = (int) (diff / 60000L % 60L);
+                int seconds = (int) (diff / 1000L % 60L);
                 int maxOnline = Bukkit.getMaxPlayers();
-                double lag = Math.round((1.0D - tps / 20.0D) * 100.0D);
                 int Online = Bukkit.getOnlinePlayers().size();
+                double tps1 = Lag.getTPS();
+                double lag1 = Math.round((1.0D - tps1 / 20.0D) * 100.0D);
+
                 sender.sendMessage("§c[RedStarAC] Server status:");
                 sender.sendMessage("§cOnline:§f " + Online + "/" + maxOnline);
+                sender.sendMessage("§cServer TPS - 1:§f " + tps1 + " (" + lag1 + "% lag)");
+                sender.sendMessage("§cTime:§f " + OffsetDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
                 if (minutes == 0) {
                     sender.sendMessage("§cServer uptime:§f " + seconds + " sec");
-                    sender.sendMessage("§cServer TPS:§f " + tps + " (" + lag + "% lag)");
-                    sender.sendMessage("§cTime:§f " + OffsetDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
                 } else if (hours == 0) {
                     sender.sendMessage("§cServer uptime:§f " + minutes + " min " + seconds + " sec");
-                    sender.sendMessage("§cServer TPS:§f " + tps + " (" + lag + "% lag)");
-                    sender.sendMessage("§cTime:§f " + OffsetDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
                 } else if (days == 0) {
                     sender.sendMessage("§cServer uptime:§f " + hours + " h " + minutes + " min " + seconds + " sec");
-                    sender.sendMessage("§cServer TPS:§f " + tps + " (" + lag + "% lag)");
-                    sender.sendMessage("§cTime:§f " + OffsetDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
                 } else {
                     sender.sendMessage("§cServer uptime:§f " + days + " d " + hours + " h " + minutes + " min " + seconds + " sec");
-                    sender.sendMessage("§cServer TPS:§f " + tps + " (" + lag + "% lag)");
-                    sender.sendMessage("§cTime:§f " + OffsetDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
                 }
                 return;
             }
