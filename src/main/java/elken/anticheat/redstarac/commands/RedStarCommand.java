@@ -59,7 +59,7 @@ public class RedStarCommand extends AbstractCommand {
             return;
         }
         if (args[0].equalsIgnoreCase("kick")) {
-            if (args[1] != null && !args[1].equals(null)) {
+            if (args.length > 1) {
                 Player target = Bukkit.getPlayer(args[1]);
                 if (target != null && !target.equals(null)) {
                     if (!sender.hasPermission("redstar.kick")) {
