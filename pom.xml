@@ -6,7 +6,7 @@
 
     <groupId>redstar.redstar</groupId>
     <artifactId>RedStarAC</artifactId>
-    <version>0.4.5D</version>
+    <version>0.4.5E</version>
     <packaging>jar</packaging>
 
     <name>RedStarAC</name>
