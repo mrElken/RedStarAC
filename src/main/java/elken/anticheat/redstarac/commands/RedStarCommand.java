@@ -43,9 +43,18 @@ public class RedStarCommand extends AbstractCommand {
         if (args.length == 0) {
             sender.sendMessage("§cRedStarAC Commands:");
             sender.sendMessage("§c/" + label + " reload - §fReload plugin");
-            sender.sendMessage("§c/" + label + " kick - §fKick player");
+            sender.sendMessage("§c/" + label + " kick <player> - §fKick player");
             sender.sendMessage("§c/" + label + " status - §fShows server status");
             return;
+        }
+        if (args[0].equalsIgnoreCase("help")) {
+            if (sender.hasPermission("redstar.help")) {
+                sender.sendMessage("§cRedStarAC Commands:");
+                sender.sendMessage("§c/" + label + " reload - §fReload plugin");
+                sender.sendMessage("§c/" + label + " kick <player> - §fKick player");
+                sender.sendMessage("§c/" + label + " status - §fShows server status");
+                return;
+            }
         }
 
         if (args[0].equalsIgnoreCase("reload")) {
@@ -58,8 +67,9 @@ public class RedStarCommand extends AbstractCommand {
             sender.sendMessage(ChatColor.RED + RedStarAC.getInstance().getConfig().getString("messages.reload"));
             return;
         }
+
         if (args[0].equalsIgnoreCase("kick")) {
-            if (args.length > 1) {
+            if (args.length > 2) {
                 Player target = Bukkit.getPlayer(args[1]);
                 if (target != null && !target.equals(null)) {
                     if (!sender.hasPermission("redstar.kick")) {
@@ -79,7 +89,6 @@ public class RedStarCommand extends AbstractCommand {
                         sender.sendMessage(ChatColor.RED + RedStarAC.getInstance().getConfig().getString("messages.bypass_kick"));
                         return;
                     }
-
                 } else {
                     sender.sendMessage(ChatColor.RED + RedStarAC.getInstance().getConfig().getString("messages.no_player"));
                     return;
@@ -126,7 +135,7 @@ public class RedStarCommand extends AbstractCommand {
 
     @Override
         public List<String> complete (CommandSender sender, String[]args){
-            if (args.length == 1) return Lists.newArrayList("reload", "kick", "status");
+            if (args.length == 1) return Lists.newArrayList("help", "reload", "kick", "status");
             if (args.length == 2) return Lists.newArrayList("<player>");
             return Lists.newArrayList();
         }

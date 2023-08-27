@@ -1,14 +1,7 @@
 # RedStarAC configuration
-messages:
-  unknown: "§c[RedStarAC] §fUnknown command!"
-  no_perms: "§c[RedStarAC] §fYou don't have permission!"
-  kick: "§c[RedStarAC] §f%cheater% is successfully kicked!"
-  kick_you: "You were kicked by the anti-cheat!"
-  bypass_kick: "§c[RedStarAC] §fYou cannot kick this player, he has bypass!"
-  arg_null: "§c[RedStarAC] §fYou didn't specify an argument!"
-  reload: "§c[RedStarAC] §fPlugin successfully reloaded!"
-  join: "§c[RedStarAC] §fThis server is protected"
-  no_player: "§c[RedStarAC] §fPlayer not found!"
+#
+#
+################################# Checks #########################################
 checks:
   killaura:
     B:
@@ -22,3 +15,14 @@ checks:
       kick_message: "§cRedStarAC§f \n§fYou are kicked off for using cheats!\n§7(Move A)"
       notify_message: "§c[RedStarAC] §fPlayer %cheater% uses cheats (Move A)"
       notify_message_kick: "§c[RedStarAC] §fPlayer %cheater% was kicked for using cheats %count%/20 (Move A)"
+################################# Messages #########################################
+messages:
+  unknown: "§c[RedStarAC] §fUnknown command!"
+  no_perms: "§c[RedStarAC] §fYou don't have permission!"
+  kick: "§c[RedStarAC] §f%cheater% is successfully kicked!"
+  kick_you: "You were kicked by the anti-cheat!"
+  bypass_kick: "§c[RedStarAC] §fYou cannot kick this player, he has bypass!"
+  arg_null: "§c[RedStarAC] §fYou didn't specify an argument!"
+  reload: "§c[RedStarAC] §fPlugin successfully reloaded!"
+  join: "§c[RedStarAC] §fThis server is protected"
+  no_player: "§c[RedStarAC] §fPlayer not found!"

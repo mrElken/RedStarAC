@@ -61,6 +61,15 @@ public class RedStarAC extends JavaPlugin implements Listener {
         Bukkit.getPluginManager().registerEvents(this, this);
     }
 
+    public void onReload() {
+
+        instanse = this;
+        Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "[RedStarAC-Error] ---> You're using /reload");
+        Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "[RedStarAC-Error] ---> Please restart the server!");
+        Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "[RedStarAC-Error] ---> The plugin will not run!");
+
+    }
+
     public void onDisable() {
         getServer().getScheduler().cancelTasks(this);
     }
