@@ -2,7 +2,7 @@ package elken.anticheat.redstarac.commands;
 
 import com.google.common.collect.Lists;
 import elken.anticheat.redstarac.RedStarAC;
-import elken.anticheat.redstarac.other.Lag;
+import elken.anticheat.redstarac.other.TPS;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -101,7 +101,7 @@ public class RedStarCommand extends AbstractCommand {
                 int seconds = (int) (diff / 1000L % 60L);
                 int maxOnline = Bukkit.getMaxPlayers();
                 int Online = Bukkit.getOnlinePlayers().size();
-                double tps1 = Lag.getTPS();
+                double tps1 = TPS.getTPS();
                 double lag1 = Math.round((1.0D - tps1 / 20.0D) * 100.0D);
 
                 sender.sendMessage("§c[RedStarAC] Server status:");

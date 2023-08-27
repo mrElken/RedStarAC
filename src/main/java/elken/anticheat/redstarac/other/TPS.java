@@ -1,6 +1,6 @@
 package elken.anticheat.redstarac.other;
 
-public class Lag
+public class TPS
         implements Runnable
 {
     public static int TICK_COUNT= 0;
