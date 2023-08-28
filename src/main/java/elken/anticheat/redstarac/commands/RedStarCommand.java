@@ -50,6 +50,7 @@ public class RedStarCommand extends AbstractCommand {
         if (args[0].equalsIgnoreCase("help")) {
             if (sender.hasPermission("redstar.help")) {
                 sender.sendMessage("§cRedStarAC Commands:");
+                sender.sendMessage("§c/" + label + " help - §fShows a list of all commands");
                 sender.sendMessage("§c/" + label + " reload - §fReload plugin");
                 sender.sendMessage("§c/" + label + " kick <player> - §fKick player");
                 sender.sendMessage("§c/" + label + " status - §fShows server status");

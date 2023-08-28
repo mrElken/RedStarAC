@@ -1,0 +1,6 @@
+name: RedStarBungee
+version: 0.4.6A
+author: mrElken_
+main: elken.anticheat.redstarac.proxy.bungee.RedStarBungee
+depends: [ Protocolize ]
+softdepends: [ floodgate, Geyser-BungeeCord ]

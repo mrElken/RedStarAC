@@ -56,7 +56,7 @@ public class RedStarAC extends JavaPlugin implements Listener {
         Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "██╔══██╗██╔══╝░░██║░░██║░╚═══██╗░░░██║░░░██╔══██║██╔══██╗██╔══██║██║░░██╗");
         Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "██║░░██║███████╗██████╔╝██████╔╝░░░██║░░░██║░░██║██║░░██║██║░░██║╚█████╔╝");
         Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "╚═╝░░╚═╝╚══════╝╚═════╝░╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝░╚════╝░");
-        Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "§c✩ §cAuthor: §emrElken       Version: §ev0.4.5G");
+        Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "§c✩ §cAuthor: §emrElken   Version: §ev0.4.6A-Spigot");
         Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "§cRedStar AntiCheat is now protecting your server!");
         Bukkit.getPluginManager().registerEvents(this, this);
     }

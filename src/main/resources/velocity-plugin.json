@@ -1,0 +1,1 @@
+{"id":"redstarvelocity","name":"RedStarVelocity","version":"0.4.6A","authors":["mrElken_"],"dependencies":[{"id":"geyser","optional":false}],"main":"elken.anticheat.redstarac.proxy.bungee.RedStarVelocity"}
