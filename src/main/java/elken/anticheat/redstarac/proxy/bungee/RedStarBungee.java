@@ -14,7 +14,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-import org.geysermc.geyser.api.connection.GeyserConnection;
 
 public class RedStarBungee extends Plugin implements Listener {
     private static boolean FLOODGATE = false;

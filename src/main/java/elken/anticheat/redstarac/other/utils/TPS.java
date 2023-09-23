@@ -1,4 +1,4 @@
-package elken.anticheat.redstarac.other;
+package elken.anticheat.redstarac.other.utils;
 
 public class TPS
         implements Runnable

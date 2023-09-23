@@ -1,5 +1,5 @@
 name: RedStarAC
-version: '0.4.6A'
+version: '0.5.2A'
 main: elken.anticheat.redstarac.RedStarAC
 api-version: 1.19
 authors: [mrElken]
@@ -41,6 +41,9 @@ permissions:
     default: op
   redstar.reload:
     description: Use /redstar reload
+    default: op
+  redstar.help:
+    description: Use /redstar help
     default: op
   redstar.bypass.kick:
     description: Bypass kick

@@ -12,9 +12,14 @@ checks:
   move:
     A:
       enable: true
-      kick_message: "§cRedStarAC§f \n§fYou are kicked off for using cheats!\n§7(Move A)"
-      notify_message: "§c[RedStarAC] §fPlayer %cheater% uses cheats (Move A)"
-      notify_message_kick: "§c[RedStarAC] §fPlayer %cheater% was kicked for using cheats %count%/20 (Move A)"
+      kick_message: "§cRedStarAC§f \n§fYou are kicked off for using cheats!\n§7(A-Speed)"
+      notify_message: "§c[RedStarAC] §fPlayer %cheater% uses cheats (A-Speed %count%/10)"
+      notify_message_kick: "§c[RedStarAC] §fPlayer %cheater% was kicked for using cheats (A-Speed %count%/10)"
+    B:
+      enable: true
+      kick_message: "§cRedStarAC§f \n§fYou are kicked off for using cheats!\n§7(B-Jesus)"
+      notify_message: "§c[RedStarAC] §fPlayer %cheater% uses cheats (B-Jesus %count%/10)"
+      notify_message_kick: "§c[RedStarAC] §fPlayer %cheater% was kicked for using cheats (B-Jesus %count%/10)"
 ################################# Messages #########################################
 messages:
   unknown: "§c[RedStarAC] §fUnknown command!"

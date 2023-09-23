@@ -1,5 +1,5 @@
 name: RedStarBungee
-version: 0.4.6A
+version: 0.5.2A
 author: mrElken_
 main: elken.anticheat.redstarac.proxy.bungee.RedStarBungee
 depends: [ Protocolize ]

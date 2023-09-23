@@ -2,7 +2,7 @@ package elken.anticheat.redstarac.commands;
 
 import com.google.common.collect.Lists;
 import elken.anticheat.redstarac.RedStarAC;
-import elken.anticheat.redstarac.other.TPS;
+import elken.anticheat.redstarac.other.utils.TPS;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -23,6 +23,7 @@ public class RedStarCommand extends AbstractCommand {
     private Instant ZonedDateTime;
     private Plugin plugin;
     private Date whatever;
+    public long diff = System.currentTimeMillis() - uptime;
 
     public RedStarCommand() {
         super("redstar");
@@ -104,7 +105,7 @@ public class RedStarCommand extends AbstractCommand {
                 sender.sendMessage(ChatColor.RED + RedStarAC.getInstance().getConfig().getString("messages.no_perms"));
                 return;
             } else {
-                long diff = System.currentTimeMillis() - uptime;
+
                 int days = (int) (diff / 86400000L);
                 int hours = (int) (diff / 3600000L % 24L);
                 int minutes = (int) (diff / 60000L % 60L);
@@ -119,13 +120,13 @@ public class RedStarCommand extends AbstractCommand {
                 sender.sendMessage("§cServer TPS - 1:§f " + tps1 + " (" + lag1 + "% lag)");
                 sender.sendMessage("§cTime:§f " + OffsetDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
                 if (minutes == 0) {
-                    sender.sendMessage("§cServer uptime:§f " + seconds + " sec");
+                    sender.sendMessage(seconds + " sec");
                 } else if (hours == 0) {
-                    sender.sendMessage("§cServer uptime:§f " + minutes + " min " + seconds + " sec");
+                    sender.sendMessage(minutes + " min " + seconds + " sec");
                 } else if (days == 0) {
-                    sender.sendMessage("§cServer uptime:§f " + hours + " h " + minutes + " min " + seconds + " sec");
+                    sender.sendMessage(hours + " h " + minutes + " min " + seconds + " sec");
                 } else {
-                    sender.sendMessage("§cServer uptime:§f " + days + " d " + hours + " h " + minutes + " min " + seconds + " sec");
+                    sender.sendMessage(days + " d " + hours + " h " + minutes + " min " + seconds + " sec");
                 }
                 return;
             }
