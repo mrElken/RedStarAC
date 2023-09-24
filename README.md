@@ -1,5 +1,5 @@
 # RedStar AntiCheat
-RedStar AntiCheat - New free anti-cheat for your server
+RedStar AntiCheat - New free anti-cheat for your minecraft server
 
 Depends:
 ```ProtocolLib```
