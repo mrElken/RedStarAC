@@ -4,11 +4,11 @@ import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
 import com.comphenix.protocol.utility.Util;
 import elken.anticheat.redstarac.checks.killaura.killauraB;
-import elken.anticheat.redstarac.checks.move.moveA;
+import elken.anticheat.redstarac.checks.move.moveB;
 import elken.anticheat.redstarac.commands.RedStarCommand;
-import elken.anticheat.redstarac.other.join_message;
 import elken.anticheat.redstarac.other.utils.TPS;
 import org.bukkit.Bukkit;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -18,33 +18,35 @@ import java.util.logging.Logger;
 
 
 public class RedStarAC extends JavaPlugin implements Listener {
-    public static final Logger _log  = Logger.getLogger("Minecraft");
     private static RedStarAC instanse;
     private ProtocolManager protocolManager;
     private Plugin plugin;
     private static long LAST_START_TIME;
     public static long uptime = System.currentTimeMillis() - LAST_START_TIME;
-
+    private ConsoleCommandSender Con;
+    private Logger Log;
 
     public void onLoad() {
-
+        Log = this.getLogger();
+        Con = Bukkit.getConsoleSender();
+        Con.sendMessage("§c[RedStarAC] ---> Starting Plugin....");
         instanse = this;
-        Bukkit.getConsoleSender().sendMessage("§c[RedStarAC] ---> Starting Plugin....");
+        LAST_START_TIME = System.currentTimeMillis();
 
     }
     public void onEnable() {
-        instanse = this;
-        LAST_START_TIME = System.currentTimeMillis();
+        String version = Bukkit.getMinecraftVersion();
         protocolManager = ProtocolLibrary.getProtocolManager();
         new RedStarCommand();
         this.saveDefaultConfig();
         this.getServer().getPluginManager().registerEvents(this, this);
 
         // Регистрация ивентов
-        Bukkit.getConsoleSender().sendMessage("§c[RedStarAC] ---> Loading checks....");
-        Bukkit.getServer().getPluginManager().registerEvents(new killauraB(), this);
-        Bukkit.getServer().getPluginManager().registerEvents(new moveA(), this);
-        Bukkit.getPluginManager().registerEvents(new join_message(), this);
+        Con.sendMessage("§c[RedStarAC] ---> Loading checks....");
+        Bukkit.getPluginManager().registerEvents(new killauraB(), this);
+        Bukkit.getPluginManager().registerEvents(new moveB(), this);
+        // Bukkit.getServer().getPluginManager().registerEvents(new moveA(), this);
+        // Bukkit.getServer().getPluginManager().registerEvents(new join_message(), this);
 
         // Преднастройка /redstar status
         Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new TPS(), 100L, 1L);
@@ -53,7 +55,7 @@ public class RedStarAC extends JavaPlugin implements Listener {
         } catch (InterruptedException f) {
             throw new RuntimeException(f);
         }
-        Bukkit.getConsoleSender().sendMessage("§c[RedStarAC] ---> Loading Complete!");
+        Con.sendMessage("§c[RedStarAC] ---> Loading Complete!");
         try {
             TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException e) {
@@ -61,22 +63,22 @@ public class RedStarAC extends JavaPlugin implements Listener {
         }
 
         // Запуск плагина
-        Bukkit.getConsoleSender().sendMessage("§c██████╗░███████╗██████╗░░██████╗████████╗░█████╗░██████╗░░█████╗░░█████╗░");
-        Bukkit.getConsoleSender().sendMessage("§c██╔══██╗██╔════╝██╔══██╗██╔════╝╚══██╔══╝██╔══██╗██╔══██╗██╔══██╗██╔══██╗");
-        Bukkit.getConsoleSender().sendMessage("§c██████╔╝█████╗░░██║░░██║╚█████╗░░░░██║░░░███████║██████╔╝███████║██║░░╚═╝");
-        Bukkit.getConsoleSender().sendMessage("§c██╔══██╗██╔══╝░░██║░░██║░╚═══██╗░░░██║░░░██╔══██║██╔══██╗██╔══██║██║░░██╗");
-        Bukkit.getConsoleSender().sendMessage("§c██║░░██║███████╗██████╔╝██████╔╝░░░██║░░░██║░░██║██║░░██║██║░░██║╚█████╔╝");
-        Bukkit.getConsoleSender().sendMessage("§c╚═╝░░╚═╝╚══════╝╚═════╝░╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝░╚════╝░");
-        Bukkit.getConsoleSender().sendMessage("§c✩ §cAuthor: §emrElken   Version: §ev0.5.2A-Spigot");
-        Bukkit.getConsoleSender().sendMessage("§cRedStar AntiCheat is now protecting your server!");
+        Con.sendMessage("§c██████╗░███████╗██████╗░░██████╗████████╗░█████╗░██████╗░░█████╗░░█████╗░");
+        Con.sendMessage("§c██╔══██╗██╔════╝██╔══██╗██╔════╝╚══██╔══╝██╔══██╗██╔══██╗██╔══██╗██╔══██╗");
+        Con.sendMessage("§c██████╔╝█████╗░░██║░░██║╚█████╗░░░░██║░░░███████║██████╔╝███████║██║░░╚═╝");
+        Con.sendMessage("§c██╔══██╗██╔══╝░░██║░░██║░╚═══██╗░░░██║░░░██╔══██║██╔══██╗██╔══██║██║░░██╗");
+        Con.sendMessage("§c██║░░██║███████╗██████╔╝██████╔╝░░░██║░░░██║░░██║██║░░██║██║░░██║╚█████╔╝");
+        Con.sendMessage("§c╚═╝░░╚═╝╚══════╝╚═════╝░╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝░╚════╝░");
+        Con.sendMessage("§c✩ §cAuthor: §emrElken    §cVersion: §ev0.5.5B-Spigot    §cServer: §e" + version);
+        Con.sendMessage("§cRedStar AntiCheat is now protecting your server!");
         Bukkit.getPluginManager().registerEvents(this, this);
     }
 
     public void onDisable() {
         if (Util.isCurrentlyReloading()) {
-            Bukkit.getConsoleSender().sendMessage("[RedStarAC-Error] ---> You're using /reload");
-            Bukkit.getConsoleSender().sendMessage("[RedStarAC-Error] ---> This may cause errors!");
-            Bukkit.getConsoleSender().sendMessage("[RedStarAC-Error] ---> Please restart the server!");
+            Log.severe("[RedStarAC-Error] ---> You're using /reload");
+            Log.severe("[RedStarAC-Error] ---> This may cause errors!");
+            Log.severe("[RedStarAC-Error] ---> Please restart the server!");
         }
         getServer().getScheduler().cancelTasks(this);
     }

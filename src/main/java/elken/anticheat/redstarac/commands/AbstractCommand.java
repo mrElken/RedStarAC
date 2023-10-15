@@ -11,7 +11,6 @@ import java.util.List;
 
 public abstract class AbstractCommand implements CommandExecutor, TabCompleter {
 
-
     public AbstractCommand(String command) {
         PluginCommand pluginCommand = RedStarAC.getInstance().getCommand(command);
         if(pluginCommand != null) {

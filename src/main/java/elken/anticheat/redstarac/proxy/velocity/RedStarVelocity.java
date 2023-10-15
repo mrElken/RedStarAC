@@ -10,7 +10,7 @@ import com.velocitypowered.api.proxy.ProxyServer;
 @Plugin(
         id = "redstarvelocity",
         name = "RedStarVelocity",
-        version = "0.5.2A",
+        version = "0.5.5A",
         description = "RedStarAntiCheat",
         authors = {"mrElken_"},
         dependencies = {@Dependency(id = "protocolize")}
@@ -38,7 +38,7 @@ public class RedStarVelocity {
         System.out.println("§c██╔══██╗██╔══╝░░██║░░██║░╚═══██╗░░░██║░░░██╔══██║██╔══██╗██╔══██║██║░░██╗");
         System.out.println("§c██║░░██║███████╗██████╔╝██████╔╝░░░██║░░░██║░░██║██║░░██║██║░░██║╚█████╔╝");
         System.out.println("§c╚═╝░░╚═╝╚══════╝╚═════╝░╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝░╚════╝░");
-        System.out.println("§c✩ §cAuthor: §emrElken   Version: §ev0.5.1A-Velocity");
+        System.out.println("§c✩ §cAuthor: §emrElken   Version: §ev0.5.5A-Velocity");
         System.out.println("§cRedStar AntiCheat is now protecting your server!");
     }
 }

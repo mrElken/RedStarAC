@@ -1,5 +1,5 @@
 name: RedStarAC
-version: '0.5.2A'
+version: '0.5.5A'
 main: elken.anticheat.redstarac.RedStarAC
 api-version: 1.19
 authors: [mrElken]

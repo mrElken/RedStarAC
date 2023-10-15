@@ -10,16 +10,18 @@ checks:
       notify_message: "§c[RedStarAC] §fPlayer %cheater% uses cheats (Killaura B)"
       notify_message_kick: "§c[RedStarAC] §fPlayer %cheater% was kicked for using cheats (Killaura B)"
   move:
+    # head_mode - Turns off the speed check for players with the player's head in the second hand
     A:
       enable: true
+      head_mode: false
       kick_message: "§cRedStarAC§f \n§fYou are kicked off for using cheats!\n§7(A-Speed)"
       notify_message: "§c[RedStarAC] §fPlayer %cheater% uses cheats (A-Speed %count%/10)"
       notify_message_kick: "§c[RedStarAC] §fPlayer %cheater% was kicked for using cheats (A-Speed %count%/10)"
     B:
       enable: true
       kick_message: "§cRedStarAC§f \n§fYou are kicked off for using cheats!\n§7(B-Jesus)"
-      notify_message: "§c[RedStarAC] §fPlayer %cheater% uses cheats (B-Jesus %count%/10)"
-      notify_message_kick: "§c[RedStarAC] §fPlayer %cheater% was kicked for using cheats (B-Jesus %count%/10)"
+      notify_message: "§c[RedStarAC] §fPlayer %cheater% uses cheats (B-Jesus %count%/15)"
+      notify_message_kick: "§c[RedStarAC] §fPlayer %cheater% was kicked for using cheats (B-Jesus %count%/15)"
 ################################# Messages #########################################
 messages:
   unknown: "§c[RedStarAC] §fUnknown command!"

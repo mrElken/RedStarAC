@@ -2,7 +2,8 @@ package elken.anticheat.redstarac.checks.killaura;
 
 import elken.anticheat.redstarac.RedStarAC;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
+import org.bukkit.command.ConsoleCommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -12,6 +13,8 @@ import org.jetbrains.annotations.NotNull;
 
 public final class killauraB implements @NotNull Listener {
     private int hitCount = 0;
+    private ConsoleCommandSender Con;
+    @NotNull FileConfiguration Cfg = RedStarAC.getInstance().getConfig();
 
     @EventHandler
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
@@ -23,19 +26,19 @@ public final class killauraB implements @NotNull Listener {
                     event.setCancelled(true);
                     ++this.hitCount;
                     if (this.hitCount >= 7) {
-                        cheater.kickPlayer(RedStarAC.getInstance().getConfig().getString("checks.killaura.A.kick_message"));
-                        Bukkit.getConsoleSender().sendMessage(ChatColor.RED + RedStarAC.getInstance().getConfig().getString("checks.killaura.B.notify_message_kick").replace("%cheater%", cheater.getName()));
+                        cheater.kickPlayer(Cfg.getString("checks.killaura.A.kick_message"));
+                        Con.sendMessage(Cfg.getString("checks.killaura.B.notify_message_kick").replace("%cheater%", cheater.getName()));
                         for (Player admin : Bukkit.getOnlinePlayers()) {
                             if (admin.hasPermission("redstar.notify")) {
-                                admin.sendMessage(ChatColor.RED + RedStarAC.getInstance().getConfig().getString("checks.killaura.B.notify_message_kick").replace("%cheater%", cheater.getName()));
+                                admin.sendMessage(Cfg.getString("checks.killaura.B.notify_message_kick").replace("%cheater%", cheater.getName()));
                             }
                             this.hitCount = 0;
                             return;
                         }
-                        Bukkit.getConsoleSender().sendMessage(ChatColor.RED + RedStarAC.getInstance().getConfig().getString("checks.killaura.B.notify_message").replace("%cheater%", cheater.getName()));
+                        Con.sendMessage(Cfg.getString("checks.killaura.B.notify_message").replace("%cheater%", cheater.getName()));
                         for (Player admin : Bukkit.getOnlinePlayers()) {
                             if (admin.hasPermission("redstar.notify")) {
-                                admin.sendMessage(ChatColor.RED + RedStarAC.getInstance().getConfig().getString("checks.killaura.B.notify_message").replace("%cheater%", cheater.getName()));
+                                admin.sendMessage(Cfg.getString("checks.killaura.B.notify_message").replace("%cheater%", cheater.getName()));
                                 return;
                             }
                         }

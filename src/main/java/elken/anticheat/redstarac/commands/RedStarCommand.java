@@ -4,8 +4,8 @@ import com.google.common.collect.Lists;
 import elken.anticheat.redstarac.RedStarAC;
 import elken.anticheat.redstarac.other.utils.TPS;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
@@ -28,6 +28,7 @@ public class RedStarCommand extends AbstractCommand {
     public RedStarCommand() {
         super("redstar");
     }
+    @NotNull FileConfiguration Cfg = RedStarAC.getInstance().getConfig();
 
     public static @Nullable org.bukkit.entity.Player getPlayer(
             @NotNull String name) {
@@ -38,7 +39,7 @@ public class RedStarCommand extends AbstractCommand {
     @Override
     public void execute(CommandSender sender, String label, String[] args) {
         if (!sender.hasPermission("redstar.command")) {
-            sender.sendMessage(ChatColor.RED + RedStarAC.getInstance().getConfig().getString("messages.no_perms"));
+            sender.sendMessage(Cfg.getString("messages.no_perms"));
             return;
         }
         if (args.length == 0) {
@@ -61,12 +62,12 @@ public class RedStarCommand extends AbstractCommand {
 
         if (args[0].equalsIgnoreCase("reload")) {
             if (!sender.hasPermission("redstar.reload")) {
-                sender.sendMessage(ChatColor.RED + RedStarAC.getInstance().getConfig().getString("messages.no_perms"));
+                sender.sendMessage(Cfg.getString("messages.no_perms"));
                 return;
             }
 
             RedStarAC.getInstance().reloadConfig();
-            sender.sendMessage(ChatColor.RED + RedStarAC.getInstance().getConfig().getString("messages.reload"));
+            sender.sendMessage(Cfg.getString("messages.reload"));
             return;
         }
 
@@ -75,37 +76,44 @@ public class RedStarCommand extends AbstractCommand {
                 Player target = Bukkit.getPlayer(args[1]);
                 if (target != null && !target.equals(null)) {
                     if (!sender.hasPermission("redstar.kick")) {
-                        sender.sendMessage(ChatColor.RED + RedStarAC.getInstance().getConfig().getString("messages.no_perms"));
+                        sender.sendMessage(Cfg.getString("messages.no_perms"));
                         return;
                     }
                     if (!target.hasPermission("redstar.bypass.kick")) {
                         if (!target.hasPermission("redstar.bypass.*")) {
-                            target.kickPlayer(ChatColor.RED + RedStarAC.getInstance().getConfig().getString("messages.kick_you"));
-                            sender.sendMessage(ChatColor.RED + RedStarAC.getInstance().getConfig().getString("messages.kick").replace("%cheater%", target.getName()));
+                            target.kickPlayer(Cfg.getString("messages.kick_you"));
+                            sender.sendMessage(Cfg.getString("messages.kick").replace("%cheater%", target.getName()));
                             return;
                         } else {
-                            sender.sendMessage(ChatColor.RED + RedStarAC.getInstance().getConfig().getString("messages.bypass_kick"));
+                            sender.sendMessage(Cfg.getString("messages.bypass_kick"));
                             return;
                         }
                     } else {
-                        sender.sendMessage(ChatColor.RED + RedStarAC.getInstance().getConfig().getString("messages.bypass_kick"));
+                        sender.sendMessage(Cfg.getString("messages.bypass_kick"));
                         return;
                     }
                 } else {
-                    sender.sendMessage(ChatColor.RED + RedStarAC.getInstance().getConfig().getString("messages.no_player"));
+                    sender.sendMessage(Cfg.getString("messages.no_player"));
                     return;
                 }
             } else {
-                sender.sendMessage(ChatColor.RED + RedStarAC.getInstance().getConfig().getString("messages.arg_null"));
+                sender.sendMessage(Cfg.getString("messages.arg_null"));
                 return;
             }
         }
         if (args[0].equalsIgnoreCase("status")) {
             if (!sender.hasPermission("redstar.status")) {
-                sender.sendMessage(ChatColor.RED + RedStarAC.getInstance().getConfig().getString("messages.no_perms"));
+                sender.sendMessage(Cfg.getString("messages.no_perms"));
                 return;
-            } else {
-
+            } else if (args.length == 2) {
+                Player cheater = Bukkit.getPlayer(args[1]);
+                // Получение данных
+                sender.sendMessage("§c[RedStarAC] Player status:");
+                sender.sendMessage("§cNickname:§f " + cheater.getName());
+                sender.sendMessage("§cPing:§f " + cheater.getPing());
+                sender.sendMessage("§cOnline:§f " + cheater.isOnline());
+                sender.sendMessage("§cAdress:§f " + cheater.getAddress());
+            } else if (args.length == 1 || args.length >= 3) {
                 int days = (int) (diff / 86400000L);
                 int hours = (int) (diff / 3600000L % 24L);
                 int minutes = (int) (diff / 60000L % 60L);
@@ -130,9 +138,9 @@ public class RedStarCommand extends AbstractCommand {
                 }
                 return;
             }
-
         }
-        sender.sendMessage(RedStarAC.getInstance().getConfig().getString("messages.unknown"));
+
+        sender.sendMessage(Cfg.getString("messages.unknown"));
     }
 
     @Override
