@@ -1,0 +1,17 @@
+################################# Checks #########################################
+checks:
+  killaura:
+    A:
+      enabled: true
+      modules:
+        distance: 2.8
+        add_vl: 2
+        kick_vl: 8
+        cancel_vl:
+          delay: 15
+          count: 2
+
+  move:
+    velocity:
+      enabled: true
+      max-ping: 140

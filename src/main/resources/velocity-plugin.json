@@ -1,7 +1,7 @@
 {
   "id": "redstarvelocity",
   "name": "RedStarVelocity",
-  "version": "0.5.5A",
+  "version": "0.5.6A",
   "authors": ["mrElken_"],
   "dependencies": [{
     "id": "geyser",

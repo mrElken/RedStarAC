@@ -1,4 +1,4 @@
-package elken.anticheat.redstarac.other.files;
+package elken.anticheat.redstarac.other.utils;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
