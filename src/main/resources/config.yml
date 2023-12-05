@@ -1,35 +1,28 @@
 # RedStarAC configuration
 #
 #
-################################# Checks #########################################
-checks:
-  killaura:
-    B:
-      enable: true
-      kick_message: "§cRedStarAC§f \n§fYou are kicked off for using cheats!\n§7(KillAura B)"
-      notify_message: "§c[RedStarAC] §fPlayer %cheater% uses cheats (Killaura B)"
-      notify_message_kick: "§c[RedStarAC] §fPlayer %cheater% was kicked for using cheats (Killaura B)"
-  move:
-    # head_mode - Turns off the speed check for players with the player's head in the second hand
-    A:
-      enable: true
-      head_mode: false
-      kick_message: "§cRedStarAC§f \n§fYou are kicked off for using cheats!\n§7(A-Speed)"
-      notify_message: "§c[RedStarAC] §fPlayer %cheater% uses cheats (A-Speed %count%/10)"
-      notify_message_kick: "§c[RedStarAC] §fPlayer %cheater% was kicked for using cheats (A-Speed %count%/10)"
-    B:
-      enable: true
-      kick_message: "§cRedStarAC§f \n§fYou are kicked off for using cheats!\n§7(B-Jesus)"
-      notify_message: "§c[RedStarAC] §fPlayer %cheater% uses cheats (B-Jesus %count%/15)"
-      notify_message_kick: "§c[RedStarAC] §fPlayer %cheater% was kicked for using cheats (B-Jesus %count%/15)"
+####################################################################################
+#                                                                                  #
+################################# Settings #########################################
+#                                                                                  #
+####################################################################################
+settings:
+  # Принудительно проверять игроков не смотря на Bypass
+  force_check: true
+####################################################################################
+#                                                                                  #
 ################################# Messages #########################################
+#                                                                                  #
+####################################################################################
 messages:
-  unknown: "§c[RedStarAC] §fUnknown command!"
-  no_perms: "§c[RedStarAC] §fYou don't have permission!"
-  kick: "§c[RedStarAC] §f%cheater% is successfully kicked!"
-  kick_you: "You were kicked by the anti-cheat!"
-  bypass_kick: "§c[RedStarAC] §fYou cannot kick this player, he has bypass!"
-  arg_null: "§c[RedStarAC] §fYou didn't specify an argument!"
-  reload: "§c[RedStarAC] §fPlugin successfully reloaded!"
-  join: "§c[RedStarAC] §fThis server is protected"
-  no_player: "§c[RedStarAC] §fPlayer not found!"
+  unknown: "§c[RedStarAC] §fНеизвестная команда!"
+  no_perms: "§c[RedStarAC] §fУ вас нету доступа к этой команде!"
+  kick: "§c[RedStarAC] §f%cheater% успешно кикнут!"
+  kick_you: "§cRedStarAC§f \nВы были кикнуты античитом!"
+  bypass_kick: "§c[RedStarAC] §fВы не можете кикнуть этого игрока!"
+  arg_null: "§c[RedStarAC] §fВы ввели неверные агрументы!"
+  reload: "§c[RedStarAC] §fПлагин успешно презагружен!"
+  no_player: "§c[RedStarAC] §fИгрок не найден!"
+  kick_message: "§cRedStarAC\n\n§fВы кикнуты по подозрению в использовании читов!\n§7(%cheat%)\n\nКлиент: %client%"
+  notify_message: "§c[RedStarAC] §fИгрок %cheater% использует читы (%cheat% %count%/%count_max%)"
+  notify_message_kick: "§c[RedStarAC] §fИгрок %cheater% был кикнут за использование читов (%cheat% %count%/%count_max%)"

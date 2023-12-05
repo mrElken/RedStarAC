@@ -1,8 +1,10 @@
 name: RedStarAC
-version: '0.5.5A'
+version: '${project.version}'
+description: 'Античит нового поколения для вашего сервера'
 main: elken.anticheat.redstarac.RedStarAC
-api-version: 1.19
+api-version: 1.16
 authors: [mrElken]
+prefix: 'RedStar AntiCheat'
 depend:
   - ProtocolLib
 softdepend:
@@ -10,10 +12,14 @@ softdepend:
   - ViaVersion
   - Geyser-Spigot
   - floodgate
+  - AntiCheatAddition
+  - Vulcan
+  - Matrix
 commands:
   redstar:
     description: RedStar AntiCheat Command
     usage: /redstar <params>
+    permission: 'redstar.command'
 permissions:
   redstar.*:
     description: Gives access to all RedStarAC permissions.
@@ -24,12 +30,20 @@ permissions:
       redstar.bypass.*: true
       redstar.reload: true
       redstar.welcome: true
+      redstar.notify: true
+      redstar.version: true
   redstar.bypass.*:
     description: Bypass RedStar checks.
     default: false
     children:
       redstar.bypass.killaura: true
       redstar.bypass.move: true
+  redstar.version:
+    description: Use /redstar ver
+    default: op
+  redstar.notify:
+    description: Receive notifications from RedStarAC
+    default: op
   redstar.command:
     description: Use /redstar command
     default: op
